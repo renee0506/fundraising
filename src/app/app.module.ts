@@ -15,11 +15,15 @@ export const firebaseConfig = {
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { ProjectListComponent } from './project-list/project-list.component';
+import { DetailComponent } from './detail/detail.component';
+import { PledgedPipe } from './pledged.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    DetailComponent,
+    PledgedPipe
   ],
   imports: [
     BrowserModule,
