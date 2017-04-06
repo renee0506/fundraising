@@ -29,3 +29,16 @@ Run `ng github-pages:deploy` to deploy to GitHub Pages.
 ## Further help
 
 To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+`npm install -g @angular/cli@1.0.0`
+`brew upgrade node`
+`apm install file-icons`
+`ng new project-name`
+`bower init`
+
+add _/node_modules_ and _/bower_components_ to **.gitignore**
+
+`bower install bootstrap --save`
+
+add _"../bower_components/bootstrap/dist/css/bootstrap.css"_ under _"styles"_ in **angular-cli.json**
