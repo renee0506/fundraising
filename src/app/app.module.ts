@@ -17,13 +17,15 @@ import { routing } from './app.routing';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { DetailComponent } from './detail/detail.component';
 import { PledgedPipe } from './pledged.pipe';
+import { AddFundComponent } from './add-fund/add-fund.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectListComponent,
     DetailComponent,
-    PledgedPipe
+    PledgedPipe,
+    AddFundComponent
   ],
   imports: [
     BrowserModule,

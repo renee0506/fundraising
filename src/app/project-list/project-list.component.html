@@ -1,26 +1,21 @@
-<p>
-  project-list works!
-</p>
 <select (change)="onChange($event.target.value)">
-  <option value="allProjects">All Tasks</option>
-  <option value="completedProjects">Completed Tasks</option>
-  <option value="incompleteProjects" selected="selected">Incomplete Tasks</option>
+  <option value="allProjects" selected="selected">All Projects</option>
+  <option value="completedProjects">Completed Projects</option>
+  <option value="incompleteProjects">Incomplete Projects</option>
 </select>
 
 
-  <div *ngFor='let project of projects|async' (click)="goToDetailPage(project)">
-    <div *ngIf="filterByPledged === 'allProjects'">
-      <h3>{{ project.title }}</h3>
-      <h5>{{ project.description }}</h5>
-    </div>
-    <div *ngIf="filterByPledged !== 'allProjects'">
-    <div *ngIf="filter(project)">
-      <h3>{{ project.title }}</h3>
-      <h5>{{ project.description }}</h5>
-    </div>
-    <div *ngIf="!filter(project)">
-        <h3>{{ project.title }}</h3>
-        <h5>{{ project.description }}</h5>
-    </div>
+<div *ngFor='let project of projects|async' (click)="goToDetailPage(project)">
+  <div *ngIf="filterByPledged === 'allProjects'">
+    <h3>{{ project.title }}</h3>
+    <h5>{{ project.description }}</h5>
+  </div>
+  <div *ngIf="filterByPledged === 'completedProjects' && filter(project)">
+    <h3>{{ project.title }}</h3>
+    <h5>{{ project.description }}</h5>
+  </div>
+  <div *ngIf="filterByPledged === 'incompleteProjects' && !filter(project)">
+    <h3>{{ project.title }}</h3>
+    <h5>{{ project.description }}</h5>
   </div>
 </div>

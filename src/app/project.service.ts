@@ -18,4 +18,11 @@ export class ProjectService {
   getProjectById(projectId: string) {
     return this.angularFire.database.object('projects/'+ projectId);
   }
+
+  addFund(localFundedProject, amount){
+    var projectEntryInFirebase = this.getProjectById(localFundedProject.$key);
+    projectEntryInFirebase.update({
+      pledged: localFundedProject.pledged + parseInt(amount)
+    });
+  }
 }

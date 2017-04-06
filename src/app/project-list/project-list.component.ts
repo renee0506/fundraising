@@ -15,7 +15,7 @@ import { PledgedPipe } from '../pledged.pipe';
 
 export class ProjectListComponent implements OnInit {
   projects: FirebaseListObservable<any[]>;
-  filterByPledged: string = "incompleteProjects"
+  filterByPledged: string = "allProjects"
 
   constructor(
     private router: Router,
@@ -35,7 +35,7 @@ export class ProjectListComponent implements OnInit {
   }
 
   filter(project){
-    if (parseInt(project.pledged) >= parseInt(project.target)){
+    if (project.pledged >= project.target){
       return true;
     }
   }

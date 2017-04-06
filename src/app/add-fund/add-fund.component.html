@@ -1,0 +1,17 @@
+<div class="new-fund">
+    <form>
+      <div class="form-group">
+        <label for="name">Name: </label>
+        <input id='name' class="form-control" type="text" #newName>
+      </div>
+      <div class="form-group">
+        <label for="password">Password: </label>
+        <input id='password' class="form-control" type="password" #newPassword>
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount: </label>
+        <input id='amount' class="form-control" type="number" #newAmount>
+      </div>
+      <button class="btn btn-warning" (click)="submitForm(projectToFund, newAmount.value)">Fund Me!</button>
+    </form>
+</div>

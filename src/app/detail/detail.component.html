@@ -1,7 +1,8 @@
 <div>
-  <h2>{{(projectToDisplay|async)?.title}}</h2>
-  <h2>{{(projectToDisplay|async)?.fundraiser}}</h2>
-  <h2>${{(projectToDisplay|async)?.pledged}}/${{(projectToDisplay|async)?.target}}</h2>
-  <h2>{{(projectToDisplay|async)?.description}}</h2>
-  <h2>{{(projectToDisplay|async)?.reward}}</h2>
+  <h2>Fundraiser: {{(projectToDisplay|async)?.fundraiser}}</h2>
+  <h3>Product:  {{(projectToDisplay|async)?.title}}</h3>
+  <h3>Progress: ${{(projectToDisplay|async)?.pledged}}/${{(projectToDisplay|async)?.target}}</h3>
+  <h5>Description:  {{(projectToDisplay|async)?.description}}</h5>
+  <h4>Fund us $20 you get => {{(projectToDisplay|async)?.reward}}</h4>
 </div>
+<add-fund [projectToFund]="(projectToDisplay|async)"></add-fund>
