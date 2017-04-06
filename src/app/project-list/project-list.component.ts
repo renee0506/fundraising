@@ -3,7 +3,6 @@ import { ProjectService } from '../project.service';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Router } from '@angular/router';
 import { Project } from '../project.model';
-import { PledgedPipe } from '../pledged.pipe';
 
 @Component({
   selector: 'app-project-list',
@@ -15,7 +14,9 @@ import { PledgedPipe } from '../pledged.pipe';
 
 export class ProjectListComponent implements OnInit {
   projects: FirebaseListObservable<any[]>;
-  filterByPledged: string = "allProjects"
+  filterByPledged: string = "allProjects";
+  currentRoute: string;
+  checkedProjects: string[] = [];
 
   constructor(
     private router: Router,
@@ -24,6 +25,7 @@ export class ProjectListComponent implements OnInit {
 
   ngOnInit() {
     this.projects = this.projectService.getProjects();
+    this.currentRoute = this.router.url;
   }
 
   goToDetailPage(clickedProject){
@@ -38,6 +40,10 @@ export class ProjectListComponent implements OnInit {
     if (project.pledged >= project.target){
       return true;
     }
+  }
+
+  startDelete(values){
+    console.log(values);
   }
 
 }

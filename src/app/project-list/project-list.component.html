@@ -4,18 +4,22 @@
   <option value="incompleteProjects">Incomplete Projects</option>
 </select>
 
-
-<div *ngFor='let project of projects|async' (click)="goToDetailPage(project)">
+<div *ngFor='let project of projects|async' >
   <div *ngIf="filterByPledged === 'allProjects'">
-    <h3>{{ project.title }}</h3>
+    <input type="checkbox" name='deleteCheck' *ngIf="currentRoute === '/admin'" [ngModel]="checkedProjects" ng-true-value='project.$key'>
+    <h3 (click)="goToDetailPage(project)">{{ project.title }}</h3>
     <h5>{{ project.description }}</h5>
   </div>
   <div *ngIf="filterByPledged === 'completedProjects' && filter(project)">
-    <h3>{{ project.title }}</h3>
+    <input type="checkbox" name='deleteCheck' *ngIf="currentRoute === '/admin'" [ngModel]="checkedProjects" ng-true-value='project.$key'>
+    <h3 (click)="goToDetailPage(project)">{{ project.title }}</h3>
     <h5>{{ project.description }}</h5>
   </div>
   <div *ngIf="filterByPledged === 'incompleteProjects' && !filter(project)">
-    <h3>{{ project.title }}</h3>
+    <input type="checkbox" name='deleteCheck' *ngIf="currentRoute === '/admin'" [ngModel]="checkedProjects" ng-true-value='project.$key'>
+    <h3 (click)="goToDetailPage(project)">{{ project.title }}</h3>
     <h5>{{ project.description }}</h5>
   </div>
 </div>
+
+<button class='btn btn-danger' (click)="startDelete(deleteCheck.checked)">!! Delete !!</button>

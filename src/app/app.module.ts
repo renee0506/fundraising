@@ -16,16 +16,16 @@ import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { DetailComponent } from './detail/detail.component';
-import { PledgedPipe } from './pledged.pipe';
 import { AddFundComponent } from './add-fund/add-fund.component';
+import { NewProjectComponent } from './new-project/new-project.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectListComponent,
     DetailComponent,
-    PledgedPipe,
-    AddFundComponent
+    AddFundComponent,
+    NewProjectComponent
   ],
   imports: [
     BrowserModule,
